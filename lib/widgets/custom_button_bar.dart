@@ -36,9 +36,46 @@ class CustomBottonBar extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: Colors.white,
                   ),
+                  child: Center(
+                    child: Container(
+                      height: 15,
+                      width: 15,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: Center(
+                        child: Container(
+                          height: 12,
+                          width: 12,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: Center(
+                            child: Container(
+                              height: 5,
+                              width: 5,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            )
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.person_outline_outlined,
+                size: 36,
+              ),
+            ),
           ],
         ),
       ),
