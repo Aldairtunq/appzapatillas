@@ -10,6 +10,8 @@ class HomePageShoes extends StatefulWidget {
 }
 
 class _HomePageShoesState extends State<HomePageShoes> {
+  final _pagecontroller = PageController(viewportFraction: 0.75);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,14 +40,60 @@ class _HomePageShoesState extends State<HomePageShoes> {
               ),
             ),
           ),
-          Expanded(child: PageView.builder(itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(36),
-                color: Colors.white, //2:1
-              ),
-            );
-          }))
+          Expanded(
+              child: PageView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: listShoes.length,
+                  controller: _pagecontroller,
+                  itemBuilder: (context, index) {
+                    final shoes = listShoes[index];
+                    return Container(
+                        margin: const EdgeInsets.symmetric(vertical: 30),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(36),
+                          color: Colors.white, //2:1
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0,
+                            vertical: 40,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                shoes.category,
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                shoes.name,
+                                style: const TextStyle(
+                                  fontSize: 28,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                shoes.price,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ));
+                  }))
         ],
       ),
     );
