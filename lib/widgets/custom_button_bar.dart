@@ -34,7 +34,7 @@ class CustomBottonBar extends StatelessWidget {
                   width: 25,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white,
+                    color: Colors.black12,
                   ),
                   child: Center(
                     child: Container(
