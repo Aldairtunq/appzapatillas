@@ -42,7 +42,7 @@ class _HomePageShoesState extends State<HomePageShoes> {
             return Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(36),
-                color: Colors.white,
+                color: Colors.white, //2:1
               ),
             );
           }))
