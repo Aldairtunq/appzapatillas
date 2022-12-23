@@ -1,5 +1,6 @@
 import 'package:appzapatillas/models/data.dart';
 import 'package:appzapatillas/widgets/custom_app_bar.dart';
+import 'package:appzapatillas/widgets/custom_button_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -50,16 +51,18 @@ class _HomePageShoesState extends State<HomePageShoes> {
                     final shoes = listShoes[index];
                     final listTitle = shoes.category.split('');
                     return Padding(
-                      padding: const EdgeInsets.only(right: 30.0),
-                      child: LayoutBuilder(builder: (context, Constraints) {
-                        return Container(
+                      padding: const EdgeInsets.only(right: 60.0),
+                      child: Transform.translate(
+                        offset: const Offset(20, 0),
+                        child: LayoutBuilder(builder: (context, Constraints) {
+                          return Container(
                             margin: const EdgeInsets.symmetric(vertical: 30),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(36),
                               color: Colors.white,
                             ),
                             child: Stack(
-                              clipBehavior: Clip.none, //4:03
+                              clipBehavior: Clip.none,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -136,11 +139,37 @@ class _HomePageShoesState extends State<HomePageShoes> {
                                     ),
                                   ),
                                 ),
+                                Positioned(
+                                    child: Material(
+                                  color: shoes.listImage[0].color,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(36),
+                                    //5:02
+                                  ),
+                                  child: InkWell(
+                                    onTap: () {},
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: 100,
+                                      child: Icon(
+                                        Icons.add,
+                                        size: 40,
+                                      ),
+                                    ),
+                                  ),
+                                ))
                               ],
-                            ));
-                      }),
+                            ),
+                          );
+                        }),
+                      ),
                     );
-                  }))
+                  })),
+          Container(
+            height: 120,
+            padding: const EdgeInsets.all(20),
+            child: CustomBottomBar(color: listShoes[0].listImage[0].color),
+          )
         ],
       ),
     );

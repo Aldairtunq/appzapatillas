@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomBottonBar extends StatelessWidget {
-  const CustomBottonBar({super.key});
+class CustomBottomBar extends StatelessWidget {
+  const CustomBottomBar({super.key, required Color color});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class CustomBottonBar extends StatelessWidget {
                       width: 15,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white,
+                        color: Colors.black12,
                       ),
                       child: Center(
                         child: Container(
